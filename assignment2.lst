@@ -1,0 +1,100 @@
+MPASM  5.50                   ASSIGNMENT2.ASM   5-17-2023  21:50:05         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0000                  00001                         org     00h
+0000   3007           00002                         movlw   07h
+0001   0087           00003                         movwf   07h
+0002   009F           00004                         movwf   1fh
+0003   1683           00005                         bsf     03h,5
+0004   0186           00006                         clrf    06h
+0005   1405           00007                         bsf     05h,0
+0006   1485           00008                         bsf     05h,1
+0007   1505           00009                         bsf     05h,2
+0008   1283           00010                         bcf     03h,5
+0009   01A0           00011                         clrf    20h
+                      00012 
+000A   0805           00013 START       movf    05h,0
+000B   00A0           00014             movwf   20h
+000C   2010           00015             call    TABLE
+000D   2021           00016                         call    TABLE2
+000E   0086           00017             movwf   06h
+000F   280A           00018             goto    START
+                      00019 
+0010   0782           00020 TABLE       addwf   02h,1
+                      00021             
+0011   343F           00022                     retlw   3Fh       ; 0
+0012   3406           00023                     retlw   06h       ; 1
+0013   345B           00024                     retlw   5Bh       ; 2
+0014   344F           00025                     retlw   4Fh       ; 3
+0015   3466           00026                     retlw   66h       ; 4
+0016   346D           00027                     retlw   6Dh       ; 5
+0017   347D           00028                     retlw   7Dh       ; 6
+0018   3427           00029                     retlw   27h       ; 7
+0019   347F           00030                     retlw   7Fh       ; 8
+001A   346F           00031                     retlw   6Fh       ; 9
+001B   3477           00032                     retlw   77h       ; A
+001C   347C           00033                     retlw   7Ch       ; B
+001D   3439           00034                     retlw   39h       ; C
+001E   345E           00035                     retlw   5Eh       ; D
+001F   3479           00036                     retlw   79h       ; E
+0020   3471           00037                     retlw   71h       ; F
+                      00038 
+0021   03A1           00039 TABLE2       decf    21h,1  
+                      00040             
+0022   3471           00041                     retlw   71h       ; F
+0023   3479           00042                         retlw   79h       ; E
+0024   345E           00043                         retlw   5Eh       ; D
+0025   3439           00044                         retlw   39h       ; C
+0026   347C           00045                         retlw   7Ch       ; B
+0027   3477           00046                         retlw   77h       ; A
+0028   346F           00047                         retlw   6Fh       ; 9
+0029   347F           00048                         retlw   7Fh       ; 8
+002A   3427           00049                         retlw   27h       ; 7
+002B   347D           00050                         retlw   7Dh       ; 6
+002C   346D           00051                         retlw   6Dh       ; 5
+002D   3466           00052                         retlw   66h       ; 4
+002E   344F           00053                         retlw   4Fh       ; 3
+MPASM  5.50                   ASSIGNMENT2.ASM   5-17-2023  21:50:05         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+002F   345B           00054                         retlw   5Bh       ; 2
+0030   3406           00055                         retlw   06h       ; 1
+0031   343F           00056                         retlw   3Fh       ; 0
+                      00057 
+                      00058            
+                      00059 
+                      00060             END
+MPASM  5.50                   ASSIGNMENT2.ASM   5-17-2023  21:50:05         PAGE  3
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+START                             0000000A
+TABLE                             00000010
+TABLE2                            00000021
+__16F627                          00000001
+__DEBUG                           1
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XX--------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    50
+Program Memory Words Free:   974
+
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+
